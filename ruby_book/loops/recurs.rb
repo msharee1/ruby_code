@@ -1,8 +1,8 @@
 def countdown(number)
-  puts number
-  number -= 1
-  if number >= 0
-    countdown(number)
+  if number <= 0
+    puts number
+  else
+    countdown(number - 1)
   end
 end
 
