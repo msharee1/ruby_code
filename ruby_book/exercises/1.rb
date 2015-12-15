@@ -51,3 +51,49 @@ contacts["Sally Johnson"]["address"] = contact_data[1][1]
 contacts["Sally Johnson"]["phone"] = contact_data[1][2]
 
 p contacts
+
+contact_data = [["joe@email.com", "123 Main st.", "555-123-4567"],
+            ["sally@email.com", "404 Not Found Dr.", "123-234-3454"]]
+
+contacts = {"Joe Smith" => {}, "Sally Johnson" => {}}
+
+joe_info = contact_data[0]
+sally_info = contact_data[1]
+
+contacts.each_key do |key|
+	if key == "Joe Smith"
+		contacts[key][:email] = joe_info.shift
+		contacts[key][:address] = joe_info.shift
+		contacts[key][:phone] = joe_info.shift
+	else
+		contacts[key][:email] = sally_info.shift
+		contacts[key][:address] = sally_info.shift
+		contacts[key][:phone] = sally_info.shift
+	end
+end
+
+p contacts
+
+fields = [:email, :address, :phone]
+contacts = {"Joe Smith" => {} }
+
+contacts.each do |name, hash|
+	fields.each do |field|
+		hash[field] = contact_data[0].shift
+	end
+end
+
+contact_data = [["joe@email.com", "123 Main st.", "555-123-4567"],
+            ["sally@email.com", "404 Not Found Dr.", "123-234-3454"]]
+
+contacts = {"Joe Smith" => {}, "Sally Johnson" => {}}
+
+contacts.each_with_index do |(name, hash), index|
+	fields.each do |field|
+		hash[field] = contact_data[index].shift
+	end
+end
+
+p contacts
+
+
